@@ -4,23 +4,64 @@
 
 
 <h3>Seznam zákazníků:</h3>
-<ul>
-    {% for zakaznik in zakaznici %}
-        <li>{{ zakaznik.jmeno }} {{ zakaznik.prijmeni }} - Věk: {{ zakaznik.vek }}</li>
-    {% endfor %}
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Věk</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for zakaznik in zakaznici %}
+        <tr>
+            <td>{{ zakaznik.jmeno }}</td>
+            <td>{{ zakaznik.prijmeni }}</td>
+            <td>{{ zakaznik.vek }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 <h3>Seznam účtů:</h3>
-<ul>
-    {% for ucet in ucty %}
-        <li>{{ ucet.zakaznik.jmeno }} {{ ucet.zakaznik.prijmeni }} - Typ účtu: {{ ucet.get_typ_uctu_display }}</li>
-    {% endfor %}
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Typ účtu</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ucet in ucty %}
+        <tr>
+            <td>{{ ucet.zakaznik.jmeno }}</td>
+            <td>{{ ucet.zakaznik.prijmeni }}</td>
+            <td>{{ ucet.get_typ_uctu_display }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 <h3>Seznam transakcí:</h3>
-<ul>
-    {% for transakce in transakce %}
-        <li>{{ transakce.zakaznik.jmeno }} {{ transakce.zakaznik.prijmeni }} - Typ: {{ transakce.get_typ_transakce_display }} - Částka: {{ transakce.castka }}</li>
-    {% endfor %}
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Typ</th>
+            <th>Částka</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transakce in transakce %}
+        <tr>
+            <td>{{ transakce.zakaznik.jmeno }}</td>
+            <td>{{ transakce.zakaznik.prijmeni }}</td>
+            <td>{{ transakce.get_typ_transakce_display }}</td>
+            <td>{{ transakce.castka }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
