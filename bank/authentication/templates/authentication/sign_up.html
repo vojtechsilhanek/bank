@@ -1,0 +1,15 @@
+{% extends "authentication/layout.html" %}
+
+{% block body %}
+<div class="p-2">
+<h3>Registrace uživatele</h3>
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+</form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "authentication/layout.html" %}
+
+{% block body %}
+
+    <h1 class="p-2">Log In</h1>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+
+        <div class="p-2">
+            <div class="m-2">
+            <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="m-2"><input type="password" name="password" placeholder="Password"></div>
+        
+            <div class="m-2"><input type="submit" value="Login"></div>
+        </div>
+        
+    </form>
+{% endblock %}

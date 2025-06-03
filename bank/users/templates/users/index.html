@@ -1,0 +1,26 @@
+{% extends "users/layout.html" %}
+
+{% block body %}
+
+
+<h3>Seznam zákazníků:</h3>
+<ul>
+    {% for zakaznik in zakaznici %}
+        <li>{{ zakaznik.jmeno }} {{ zakaznik.prijmeni }} - Věk: {{ zakaznik.vek }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Seznam účtů:</h3>
+<ul>
+    {% for ucet in ucty %}
+        <li>{{ ucet.zakaznik.jmeno }} {{ ucet.zakaznik.prijmeni }} - Typ účtu: {{ ucet.get_typ_uctu_display }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Seznam transakcí:</h3>
+<ul>
+    {% for transakce in transakce %}
+        <li>{{ transakce.zakaznik.jmeno }} {{ transakce.zakaznik.prijmeni }} - Typ: {{ transakce.get_typ_transakce_display }} - Částka: {{ transakce.castka }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

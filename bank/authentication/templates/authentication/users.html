@@ -1,0 +1,17 @@
+{% extends "authentication/layout.html" %}
+
+{% block body %}
+
+    <h1 class="p-4">Welcome, {{ request.user.first_name }}</h1>
+    <div class="p-2">
+        <ul>
+            <li>Username: {{ request.user.username }}</li>
+            <li>Email: {{ request.user.email }}</li>
+        </ul>
+        
+        <a href="{% url 'logout' %}">Log Out</a>
+    </div>
+    
+
+    
+{% endblock %}
